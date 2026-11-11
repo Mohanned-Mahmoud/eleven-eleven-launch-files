@@ -1,0 +1,1 @@
+export interface Personal { nickname:string;signature:string;elevenMessages:readonly string[];insideJokes:readonly string[];memories:readonly {title:string;caption:string;image:string|null}[];song:{title:string;file:string|null;license:string};letter:readonly string[];hiddenMessages:readonly string[] }

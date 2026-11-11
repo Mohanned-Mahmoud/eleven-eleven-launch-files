@@ -1,0 +1,3 @@
+import {useRef,useState} from 'react'
+import type {Personal} from '../config/personal'
+export function Soundtrack({song}:{song:Personal['song']}){const audio=useRef<HTMLAudioElement>(null);const [playing,setPlaying]=useState(false);if(!song.file||!song.license||song.license.startsWith('['))return null;return <div className="soundtrack"><audio ref={audio} src={song.file} preload="none" loop/><button className="text-button" aria-label={playing?'Mute soundtrack':'Play soundtrack'} aria-pressed={playing} onClick={()=>{if(playing){audio.current?.pause();setPlaying(false)}else void audio.current?.play().then(()=>setPlaying(true)).catch(()=>setPlaying(false))}}>{playing?'Mute':'Music'}</button></div>}

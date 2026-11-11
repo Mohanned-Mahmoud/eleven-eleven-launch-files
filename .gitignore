@@ -1,0 +1,12 @@
+node_modules/
+dist/
+work/
+.env
+.env.*
+*.tsbuildinfo
+.DS_Store
+
+vercel-public/
+.vercel/
+
+!.env.example

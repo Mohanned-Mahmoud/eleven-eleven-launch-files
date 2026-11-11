@@ -1,0 +1,2 @@
+self.addEventListener('push',event=>{let data={};try{data=event.data.json()}catch{}event.waitUntil(self.registration.showNotification(data.title||'11:11',{body:data.body||'Your garden is ready.',tag:'1111-launch',data:{url:self.location.origin}}))})
+self.addEventListener('notificationclick',event=>{event.notification.close();event.waitUntil(clients.matchAll({type:'window'}).then(windows=>{const existing=windows.find(w=>w.url.startsWith(self.location.origin));return existing?existing.focus():clients.openWindow(self.location.origin)}))})
