@@ -1,1 +1,23 @@
-{"compilerOptions":{"target":"ES2022","lib":["ES2022","DOM"],"module":"ESNext","moduleResolution":"bundler","jsx":"react-jsx","esModuleInterop":true,"skipLibCheck":true,"noEmit":true,"strict":true,"types":["node"]},"include":["api/**/*.ts","server/**/*.ts"]}
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "strict": true,
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "api/**/*.ts",
+    "server/**/*.ts"
+  ]
+}

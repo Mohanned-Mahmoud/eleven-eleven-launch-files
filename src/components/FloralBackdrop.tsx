@@ -1,5 +1,5 @@
 /** @jsxRuntime automatic */
-import { assets } from '../config/assets'
+import { assets } from '../config/assets.js'
 export function FloralBackdrop({ variant }: { variant: 'countdown' | 'opening' }) {
   return <div className={`floral-stage floral-stage--${variant}`} aria-hidden="true">
     <div className="floral-ambient" />

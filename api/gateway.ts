@@ -1,13 +1,13 @@
-import {previewEnabled,previewPassword,previewCookie,validPreview} from '../server/preview'
-import {pushReady,subscribe,deliver} from '../server/push'
+import {previewEnabled,previewPassword,previewCookie,validPreview} from '../server/preview.js'
+import {pushReady,subscribe,deliver} from '../server/push.js'
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import { readFile, readdir } from 'node:fs/promises'
 import {resolve,extname,sep} from 'node:path'
 import {createElement} from 'react'
 import {renderToStaticMarkup} from 'react-dom/server'
-import {CountdownScene} from '../src/scenes/CountdownScene'
-import {personalization} from '../server/personalization'
-import {LAUNCH,unlocked,publicBeforeLaunch} from '../server/policy'
+import {CountdownScene} from '../src/scenes/CountdownScene.js'
+import {personalization} from '../server/personalization.js'
+import {LAUNCH,unlocked,publicBeforeLaunch} from '../server/policy.js'
 export default async function handler(req:IncomingMessage,res:ServerResponse){
   res.setHeader('Cache-Control','private, no-store, max-age=0');res.setHeader('CDN-Cache-Control','no-store');res.setHeader('Vercel-CDN-Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','no-referrer')
   const url=new URL(req.url||'/', 'http://localhost');let path:string

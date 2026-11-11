@@ -1,10 +1,10 @@
 /** @jsxRuntime automatic */
-import { experience } from '../config/experience'
-import { remainingUntil, pad } from '../lib/time'
-import { FloralBackdrop } from '../components/FloralBackdrop'
-import { SceneLayout } from '../components/SceneLayout'
-import { Eyebrow, Heading } from '../components/Typography'
-import { Sprig } from '../components/Ornament'
+import { experience } from '../config/experience.js'
+import { remainingUntil, pad } from '../lib/time.js'
+import { FloralBackdrop } from '../components/FloralBackdrop.js'
+import { SceneLayout } from '../components/SceneLayout.js'
+import { Eyebrow, Heading } from '../components/Typography.js'
+import { Sprig } from '../components/Ornament.js'
 
 export function CountdownScene({ now }: { now: number }) {
   const time = remainingUntil(experience.unlockAt, now)
