@@ -6,3 +6,5 @@
 .personal-prose:lang(ar){font-family:var(--font-arabic);font-size:clamp(26px,5vw,32px);line-height:1.8;letter-spacing:normal;text-wrap:pretty}
 .personal-small:lang(ar){font-family:var(--font-arabic);font-size:18px;line-height:1.9;letter-spacing:normal}
 .personal-joke{font:400 clamp(22px,5.5vw,28px)/1.8 var(--font-arabic);color:var(--color-soft-blush);margin:18px auto 0;max-width:32ch;text-wrap:balance;overflow-wrap:break-word}
+
+.memory-caption:lang(ar){font-size:clamp(20px,4.8vw,23px);line-height:1.9;text-wrap:pretty}
