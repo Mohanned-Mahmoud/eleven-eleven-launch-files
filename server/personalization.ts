@@ -1,5 +1,6 @@
 // SERVER ONLY. Actual personal details belong in PERSONALIZATION_JSON, not public Git.
 import type {Personal} from '../src/config/personal.js'
+import {withLocalAudio} from './local-audio.js'
 const defaults:Personal={
  nickname:'[Recipient nickname]',signature:'[Sender signature]',
  elevenMessages:Array.from({length:11},(_,i)=>`[Personal message ${i+1} — add a real detail]`),
@@ -11,4 +12,4 @@ const defaults:Personal={
 }
 let overrides:Partial<Personal>={}
 if(process.env.PERSONALIZATION_JSON){try{const parsed=JSON.parse(process.env.PERSONALIZATION_JSON);if(parsed&&typeof parsed==='object'&&!Array.isArray(parsed))overrides=parsed}catch{console.error('Invalid PERSONALIZATION_JSON; using placeholders')}}
-export const personalization:Personal={...defaults,...overrides}
+export const personalization:Personal=withLocalAudio({...defaults,...overrides})

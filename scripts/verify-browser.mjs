@@ -42,11 +42,7 @@ try {
   await page.getByRole('button', {name:'Back to our moment'}).click()
   await page.locator('[data-scene="memories"]').waitFor()
   await page.getByRole('button',{name:'Continue',exact:true}).click()
-  await page.getByRole('button', {name:'Botanical notes'}).click()
-  assert.equal(await page.locator('dialog').evaluate(d=>d.open), true)
-  await page.keyboard.press('Escape')
-  assert.equal(await page.locator('dialog').evaluate(d=>d.open), false)
-  assert.equal(await page.getByRole('button', {name:'Botanical notes'}).evaluate(e=>e===document.activeElement), true)
+  assert.equal(await page.getByRole('button', {name:'Botanical notes'}).count(), 0)
   // Live clock crossing: normal entry, no preview scene override.
   await page.clock.install({time: new Date('2026-11-11T21:10:59.000Z')})
   await page.goto(base)
@@ -65,7 +61,7 @@ try {
   await page.waitForTimeout(1600)
   await page.screenshot({path:`${output}/garden-motion-390x844.png`})
   assert.deepEqual(errors, [])
-  await writeFile(`${output}/verification.json`, JSON.stringify({ passed:true, sizes, measurements, errors, checks:['15 scene/viewport captures','No horizontal or vertical overflow','All images loaded','No browser or network errors','Opening to garden and back','Garden note opens and closes','Dialog Escape and focus restoration','Release boundary automatically transitions','Reduced motion and pause/resume','Focus follows scene transitions'] },null,2))
+  await writeFile(`${output}/verification.json`, JSON.stringify({ passed:true, sizes, measurements, errors, checks:['15 scene/viewport captures','No horizontal or vertical overflow','All images loaded','No browser or network errors','Opening to garden and back','Garden note opens and closes','Botanical notes removed','Release boundary automatically transitions','Reduced motion and pause/resume','Focus follows scene transitions'] },null,2))
   console.log(`PASS: 15 scene/viewport captures, 2 interaction captures, release and accessibility checks. ${output}`)
 } finally { await browser.close() }
 

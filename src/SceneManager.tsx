@@ -3,7 +3,7 @@ import { PersonalScene } from './scenes/PersonalScene'
 import { Soundtrack } from './components/Soundtrack'
 import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { ArrowUpRight, Pause, Play } from 'lucide-react'
+import { Pause, Play } from 'lucide-react'
 import { experience } from './config/experience'
 import type { SceneId } from './config/experience'
 import type { PreviewSettings } from './dev/preview'
@@ -17,7 +17,6 @@ import type { Flower } from './grow/model'
 import { BouquetScene } from './scenes/BouquetScene'
 import { GrowScene } from './scenes/GrowScene'
 import { GardenScene } from './scenes/GardenScene'
-import { BotanicalNotes } from './components/BotanicalNotes'
 import { Handwritten } from './components/Typography'
 
 const PreviewDock = import.meta.env.DEV ? lazy(() => import('./dev/PreviewDock')) : null
@@ -30,7 +29,6 @@ export function SceneManager({ preview, personal, serverUnlocked=false }: { prev
   const [bouquet,setBouquet]=useState<Flower[]>([])
   const [matureIds,setMatureIds]=useState<number[]>([])
   const nextFlowerId=useRef(1)
-  const [notesOpen, setNotesOpen] = useState(false)
   const [forcedPreview, setForcedPreview] = useState(Boolean(preview?.scene))
   const { still, systemReduced, toggle } = useMotion()
   const container = useRef<HTMLDivElement>(null)
@@ -84,8 +82,7 @@ export function SceneManager({ preview, personal, serverUnlocked=false }: { prev
       {(['invitation','eleven','play','memories','wish','letter'] as const).map(id=>scene===id&&<PersonalScene key={id} id={id} personal={personal} onBack={()=>goTo(({invitation:'opening',eleven:'invitation',play:'eleven',memories:'play',wish:'bouquet',letter:'wish'} as const)[id])} onNext={()=>goTo(({invitation:'eleven',eleven:'play',play:'memories',memories:'garden',wish:'letter',letter:'garden'} as const)[id])}/>) }
     </main>
     <Soundtrack song={personal.song} tracks={personal.songs}/>
-    <footer className="site-footer flex items-center justify-between"><Handwritten>For you, always.</Handwritten><p className="footer-date">11 November 2026 <span>·</span> Cairo</p><button onClick={() => setNotesOpen(true)} className="credits-button text-button">Botanical notes<ArrowUpRight size={12} strokeWidth={1.2} aria-hidden="true" /></button></footer>
+    <footer className="site-footer flex items-center justify-between"><Handwritten>For you, always.</Handwritten><p className="footer-date">11 November 2026 <span>·</span> Cairo</p></footer>
     {PreviewDock && preview && !preview.clean && <Suspense fallback={null}><PreviewDock scene={scene} frozen={preview.frozen} onSelect={next => { setForcedPreview(true); goTo(next) }} /></Suspense>}
-    <BotanicalNotes open={notesOpen} onClose={() => setNotesOpen(false)} />
   </div>
 }

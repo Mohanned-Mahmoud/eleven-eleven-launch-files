@@ -40,7 +40,7 @@ Visually inspected: main copy, small labels, numeral shapes, floral cropping, ce
 - Scene headings receive focus when scenes change.
 - Motion toggle does not steal focus to the heading.
 - Garden detail opens and closes using a real button.
-- Botanical notes opens a native modal; Escape closes it and focus returns to its trigger.
+- Botanical notes was removed from the interface; asset credits remain in docs/ASSETS.md.
 - System reduced motion disables motion; user pause/resume works when motion is enabled.
 - The live clock automatically advances from countdown to opening at the release boundary.
 - Visible keyboard focus, a skip link, native buttons, text labels and 44 px interaction targets are supplied. The timer is not announced every second.

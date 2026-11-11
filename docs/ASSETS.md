@@ -10,7 +10,7 @@ All three images were inspected at their downloaded resolution before use. They 
 | Pink garden rose | [Inc inductgroup](https://unsplash.com/photos/yP3qY0p1-NA) | `photo-1781107254194-01b9fbdeaec5`, 2000 × 2994 downloaded | `garden-rose.webp`, `garden-rose-mobile.webp` | Left foreground; distinct bloom, foliage and natural depth of field |
 | Rose-arch garden path | [Annie Spratt](https://unsplash.com/photos/ZYNbJcl4mAo) | `photo-1781438150201-50aae7557825`, 2400 × 1594 downloaded | `garden-path.webp`, `garden-path-mobile.webp` | Continuous garden scene with an actual gravel plane and receding arches |
 
-License: [Unsplash License](https://unsplash.com/license). Free commercial and noncommercial use, including downloading, modifying and distributing as part of the site. Do not sell unmodified images or compile a competing image service. Photographer credit appears in the accessible Botanical notes dialog even though the license does not require it. Original provider pages and the runtime manifest retain provenance.
+License: [Unsplash License](https://unsplash.com/license). Free commercial and noncommercial use, including downloading, modifying and distributing as part of the site. Do not sell unmodified images or compile a competing image service. Photographer credit and provenance remain documented here and in the runtime asset manifest.
 
 The same established foreground photographs carry through the countdown and opening for visual continuity. Within a composition no flower has been cloned, mirrored or stamped. No stock collage grid, 3D flower, generative background or synthetic particles are used. The garden is one continuous photograph, not assembled scenery.
 
