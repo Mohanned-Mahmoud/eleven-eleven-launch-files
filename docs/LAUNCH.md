@@ -42,3 +42,15 @@ Remaining before launch: replace placeholders, provide licensed song and real me
 Optional `songs` contains two tracks: `{id:"calm",label:"هادي",title:"…",file:"/audio/calm.mp3",license:"…"}` and `{id:"hyper",label:"مهيبر",title:"…",file:"/audio/hyper.mp3",license:"…"}`. Use properly licensed files. Controls stay hidden until a usable licensed track exists. Switching tracks only affects the persistent audio element; it does not change scene, theme, colors, animations or game behavior. The only in-page control is “Tap to change”, which cycles tracks without pausing. Audible autoplay is attempted on mount; when browser policy blocks it, playback retries on the first click or Enter/Space interaction. Browser and operating-system audio controls remain outside the site’s control. Legacy `song` configuration is still supported. Track URLs and permission references are not supplied by default.
 
 Upload `public/audio/calm.mp3` (هادي) and `public/audio/hyper.mp3` (مهيبر), then commit and redeploy. The server detects these nonempty files automatically, including when server-only `songs` entries have `file: null`. Explicit custom file paths take precedence. Missing tracks remain hidden. These are user-supplied files; the uploader must have permission to use them. This public GitHub repository does not keep uploaded audio private.
+
+### Audio delivery
+
+Built-in MP3 files are normalized to 128 kbps stereo MPEG audio without embedded
+cover artwork (the `.mp3` suffix must match the actual codec). The gateway checks
+launch/preview access before streaming audio, supports byte ranges (`206`),
+Safari's two-byte probes, seeking, suffix requests and HEAD, and keeps no-store
+headers. Open-ended ranges are delivered in chunks of at most 1 MiB instead of
+buffering an entire track in a function response. Retest upload codec/size when
+replacing songs. Each song keeps its own audio element and playback position;
+the second track preloads after the first starts, so switching can reuse its
+buffer. Browser autoplay restrictions still apply.

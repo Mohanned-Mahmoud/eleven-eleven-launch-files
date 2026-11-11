@@ -7,6 +7,7 @@ import {createElement} from 'react'
 import {renderToStaticMarkup} from 'react-dom/server'
 import {CountdownScene} from '../src/scenes/CountdownScene.js'
 import {personalization} from '../server/personalization.js'
+import {serveAudio} from './audio.js'
 import {LAUNCH,unlocked,publicBeforeLaunch} from '../server/policy.js'
 export default async function handler(req:IncomingMessage,res:ServerResponse){
   res.setHeader('Cache-Control','private, no-store, max-age=0');res.setHeader('CDN-Cache-Control','no-store');res.setHeader('Vercel-CDN-Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','no-referrer')
@@ -46,5 +47,6 @@ export default async function handler(req:IncomingMessage,res:ServerResponse){
   }
   if(!open&&!publicBeforeLaunch(path)){res.statusCode=423;res.end('This garden opens at 11:11 PM Cairo.');return}
   const file=resolve(root,path==='/'?'index.html':path.slice(1));if(!file.startsWith(root+sep)){res.statusCode=404;res.end();return}
+  if(['.mp3','.m4a'].includes(extname(file))){await serveAudio(file,req,res);return}
   try{const body=await readFile(file);const mime:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.woff2':'font/woff2','.webp':'image/webp','.svg':'image/svg+xml','.png':'image/png','.webmanifest':'application/manifest+json','.mp3':'audio/mpeg','.m4a':'audio/mp4'};res.setHeader('Content-Type',mime[extname(file)]||'application/octet-stream');res.end(req.method==='HEAD'?undefined:body)}catch{res.statusCode=404;res.end()}
 }
