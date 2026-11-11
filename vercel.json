@@ -1,6 +1,10 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
+  "framework": null,
+  "installCommand": "npm ci",
   "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
   "outputDirectory": "vercel-public",
   "functions": {
     "api/gateway.ts": {
@@ -13,6 +17,5 @@
       "src": "/(.*)",
       "dest": "/api/gateway?path=/$1"
     }
-  ],
-  "framework": null
+  ]
 }
