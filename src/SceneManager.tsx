@@ -83,7 +83,7 @@ export function SceneManager({ preview, personal, serverUnlocked=false }: { prev
       {scene === 'bouquet' && <BouquetScene stock={pickedFlowers} flowers={bouquet} still={still} onBack={()=>goTo('grow')} onChange={setBouquet} onContinue={()=>goTo('wish')} onAnother={()=>setBouquet([])} />}
       {(['invitation','eleven','play','memories','wish','letter'] as const).map(id=>scene===id&&<PersonalScene key={id} id={id} personal={personal} onBack={()=>goTo(({invitation:'opening',eleven:'invitation',play:'eleven',memories:'play',wish:'bouquet',letter:'wish'} as const)[id])} onNext={()=>goTo(({invitation:'eleven',eleven:'play',play:'memories',memories:'garden',wish:'letter',letter:'garden'} as const)[id])}/>) }
     </main>
-    <Soundtrack song={personal.song}/>
+    <Soundtrack song={personal.song} tracks={personal.songs}/>
     <footer className="site-footer flex items-center justify-between"><Handwritten>For you, always.</Handwritten><p className="footer-date">11 November 2026 <span>·</span> Cairo</p><button onClick={() => setNotesOpen(true)} className="credits-button text-button">Botanical notes<ArrowUpRight size={12} strokeWidth={1.2} aria-hidden="true" /></button></footer>
     {PreviewDock && preview && !preview.clean && <Suspense fallback={null}><PreviewDock scene={scene} frozen={preview.frozen} onSelect={next => { setForcedPreview(true); goTo(next) }} /></Suspense>}
     <BotanicalNotes open={notesOpen} onClose={() => setNotesOpen(false)} />
