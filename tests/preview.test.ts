@@ -1,0 +1,4 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import {previewCookie,previewPassword,validPreview} from '../server/preview.ts'
+test('preview needs configured secret; cookie is signed and expires',()=>{const old=process.env.PREVIEW_SECRET;try{delete process.env.PREVIEW_SECRET;assert.equal(previewPassword('anything'),false);process.env.PREVIEW_SECRET='test-secret-at-least-24-characters';assert.equal(previewPassword('wrong'),false);assert.equal(previewPassword(process.env.PREVIEW_SECRET),true);const cookie=previewCookie(1000);assert.equal(validPreview(cookie,1001),true);assert.equal(validPreview(cookie.replace('3601000','9999999'),1001),false);assert.equal(validPreview(cookie,3601001),false)}finally{if(old===undefined)delete process.env.PREVIEW_SECRET;else process.env.PREVIEW_SECRET=old}})

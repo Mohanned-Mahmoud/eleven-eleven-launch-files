@@ -14,11 +14,5 @@
       "dest": "/api/gateway?path=/$1"
     }
   ],
-  "framework": null,
-  "crons": [
-    {
-      "path": "/api/cron",
-      "schedule": "* 21 11 11 *"
-    }
-  ]
+  "framework": null
 }

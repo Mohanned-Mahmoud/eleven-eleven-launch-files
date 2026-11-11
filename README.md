@@ -1,3 +1,5 @@
+> **Vercel deployment:** follow [DEPLOY-VERCEL.md](DEPLOY-VERCEL.md). Import this repository directly; the ZIP is an older snapshot. Set server-only `PREVIEW_SECRET` (24+ random characters), then hold the upper-left 11:11 for 5 seconds to enter the protected test mode.
+
 # 11:11 — A Garden Made for You
 
 A mobile-first, three-scene romantic experience built with React, Vite, TypeScript, Tailwind CSS and GSAP. Phase 1 includes a working countdown, cinematic invitation, and interactive photographic garden prototype.
