@@ -7,8 +7,8 @@
   "devCommand": "npm run dev",
   "outputDirectory": "vercel-public",
   "functions": {
-    "api/gateway.ts": {
-      "includeFiles": "dist/**",
+    "api/gateway.js": {
+      "includeFiles": "{dist/**,server-runtime/**}",
       "maxDuration": 30
     }
   },

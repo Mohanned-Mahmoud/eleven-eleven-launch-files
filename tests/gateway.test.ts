@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import {createServer} from 'node:http'
 import {readdir,readFile} from 'node:fs/promises'
-import handler from '../api/gateway.ts'
+import handler from '../server/gateway.ts'
 import {LAUNCH} from '../server/policy.ts'
 test('real HTTP gateway denies prelaunch content/JS/assets and releases at server boundary',async()=>{
  const original=Date.now;let now=LAUNCH-1;Date.now=()=>now

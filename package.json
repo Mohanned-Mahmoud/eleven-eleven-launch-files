@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "tsc -b && tsc -p tsconfig.server.json && vite build && node scripts/prepare-launch.mjs",
+    "build": "tsc -b && tsc -p tsconfig.server.json && tsc -p tsconfig.runtime.json && vite build && node scripts/prepare-launch.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --import tsx --test tests/*.test.ts",
     "test:browser": "node scripts/verify-browser.mjs"
