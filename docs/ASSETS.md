@@ -50,3 +50,7 @@ No professional layered botanical artwork was supplied or commissioned. The foll
 ### 3. Optional future ambient audio
 
 Not included or simulated. If desired in a later phase, commission/license a seamless 45–90 second real evening-garden loop, no music or sudden calls, delivered lossless plus 96–128 kbps web audio. It must start only after an explicit visitor action.
+
+### Arabic typography
+
+Amiri Regular, Arabic subset, by Khaled Hosny and contributors. Self-hosted as `public/fonts/amiri-arabic-400-normal.woff2`, sourced from Fontsource’s Amiri distribution. Licensed under the SIL Open Font License 1.1; full license in `docs/licenses/Amiri-OFL.txt`. Used for Arabic copy alongside the existing Latin typefaces.

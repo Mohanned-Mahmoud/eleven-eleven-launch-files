@@ -2,3 +2,7 @@
 
 .soundtrack{top:54px;bottom:auto}
 .soundtrack{display:flex;align-items:center;background:#17131c;border:1px solid #97728640;border-radius:2px;max-width:calc(100vw - 32px)}.soundtrack>.text-button{min-height:44px;padding:0 12px;font-size:11px}.soundtrack>p{position:absolute;right:0;top:100%;background:#17131c;padding:8px;width:220px}
+
+.personal-prose:lang(ar){font-family:var(--font-arabic);font-size:clamp(26px,5vw,32px);line-height:1.8;letter-spacing:normal;text-wrap:pretty}
+.personal-small:lang(ar){font-family:var(--font-arabic);font-size:18px;line-height:1.9;letter-spacing:normal}
+.personal-joke{font:400 clamp(22px,5.5vw,28px)/1.8 var(--font-arabic);color:var(--color-soft-blush);margin:18px auto 0;max-width:32ch;text-wrap:balance;overflow-wrap:break-word}

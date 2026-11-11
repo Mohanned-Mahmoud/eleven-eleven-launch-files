@@ -1,3 +1,5 @@
+@font-face { font-family: 'Amiri'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/amiri-arabic-400-normal.woff2') format('woff2'); unicode-range: U+0600-06FF,U+0750-077F,U+0870-089F,U+08A0-08FF,U+FB50-FDFF,U+FE70-FEFF,U+10E60-10E7F,U+10EC0-10EFF,U+1EE00-1EEFF; }
+:lang(ar) { font-family: var(--font-arabic); letter-spacing: normal; }
 * { box-sizing: border-box; }
 html, body, #root { margin: 0; min-width: 280px; min-height: 100%; }
 body { background: var(--color-midnight); color: var(--color-ivory); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }

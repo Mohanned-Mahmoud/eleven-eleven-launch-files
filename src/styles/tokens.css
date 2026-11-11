@@ -6,9 +6,10 @@
   --color-deep-plum: #292039;
   --color-midnight: #11101B;
   --color-botanical-green: #75816A;
-  --font-display: 'Cormorant Garamond Variable', 'Times New Roman', serif;
-  --font-sans: 'DM Sans Variable', Arial, sans-serif;
-  --font-hand: 'Caveat Variable', cursive;
+  --font-display: 'Cormorant Garamond Variable', 'Amiri', 'Times New Roman', serif;
+  --font-sans: 'DM Sans Variable', 'Amiri', Arial, sans-serif;
+  --font-arabic: 'Amiri', 'Times New Roman', serif;
+  --font-hand: 'Caveat Variable', 'Amiri', cursive;
 }
 :root {
   color-scheme: dark;
